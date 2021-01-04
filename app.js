@@ -16,7 +16,7 @@ let people = [];
 
 const generateListOfRandomPersons = () => {
   for(let i = 1; i <= 20;) {
-    const identity = {};
+    let identity = {};
     identity.id = i;
 
     /* choose random name */
@@ -54,21 +54,17 @@ const generateListOfRandomPersons = () => {
       people.push(identity);
       i++
     } else if(people.length > 0){
-      let valueName = people.map(function(item){ return item.Name });
-      let duplicateName = valueName.some(function(item, idx){
-        return valueName.indexOf(item) != idx
+      let duplicate = people.some(function(item, idx){
+        console.log(item);
+        return people.indexOf(item) != idx
       });
-      let valueSurname = people.map(function(item){ return item.Surname });
-      let duplicateSurname = valueSurname.some(function(item, idx){
-        return valueSurname.indexOf(item) != idx
-      });
-      if((!duplicateName) && (!duplicateSurname)){
+      if(!duplicate){
         people.push(identity);
         i++;
       } else {
         i = i;
       }
-      console.log(people);
+      // console.log(people);
     }
   }
 }
