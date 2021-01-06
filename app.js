@@ -1,15 +1,15 @@
 const fs = require('fs');
 
 const maleName = [
-    'Kamil', 'Rafał', 'Łukasz', 'Patryk', 'Grzegorz', 'Franek', 'Radek', 'Paweł'
+    'Kamil', 'Rafał', 'Łukasz', 'Patryk', 'Grzegorz'
 ];
 
 const femaleName = [
-    'Kamila', 'Ania', 'Basia', 'Kasia', 'Róża', 'Krzysztofa'
+    'Kamila', 'Ania', 'Basia', 'Kasia', 'Róża'
 ];
 
 const lastName = [
-    'Mrówka', 'Kowalik', 'Stąpor', 'Zagłoba', 'Gębala', 'Cedzidło', 'Radziwił', 'Blech', 'Gerlach', 'Herman'
+    'Mrówka', 'Kowalik', 'Stąpor', 'Zagłoba', 'Gębala'
 ];
 
 let people = [];
@@ -55,7 +55,6 @@ const generateListOfRandomPersons = () => {
       i++
     } else if(people.length > 0){
       let duplicate = people.some(function(item, idx){
-        console.log(item);
         return people.indexOf(item) != idx
       });
       if(!duplicate){
@@ -64,8 +63,8 @@ const generateListOfRandomPersons = () => {
       } else {
         i = i;
       }
-      // console.log(people);
     }
+    console.log(people);
   }
 }
 const createFileJson = () => {
