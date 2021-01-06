@@ -12,8 +12,8 @@ const lastName = [
     'Mrówka', 'Kowalik', 'Stąpor', 'Zagłoba', 'Gębala'
 ];
 
-let people = [];
 
+const people = [];
 const generateListOfRandomPersons = () => {
   for(let i = 1; i <= 20;) {
     let identity = {};
@@ -54,24 +54,25 @@ const generateListOfRandomPersons = () => {
       people.push(identity);
       i++
     } else if(people.length > 0){
-      let duplicate = people.some(function(item, idx){
-        return people.indexOf(item) != idx
+      let duplicate = people.some(item => {
+        return item.Name == identity.Name && item.Surname == identity.Surname
       });
       if(!duplicate){
         people.push(identity);
         i++;
       } else {
+        console.log('i = i');
         i = i;
       }
     }
-    console.log(people);
   }
 }
-const createFileJson = () => {
-    const myobj = JSON.stringify({
-        Persons: people
-    });
 
+
+const createFileJson = () => {
+  const myobj = JSON.stringify({
+    Persons: people
+  });
     fs.writeFile("people.JSON", myobj, err => {
         if (err) {
             console.log(err);
