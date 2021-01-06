@@ -54,14 +54,13 @@ const generateListOfRandomPersons = () => {
       people.push(identity);
       i++
     } else if(people.length > 0){
-      let duplicate = people.some(item => {
-        return item.Name == identity.Name && item.Surname == identity.Surname
-      });
+      let duplicate = people.some(item => 
+         item.Name == identity.Name && item.Surname == identity.Surname
+      );
       if(!duplicate){
         people.push(identity);
         i++;
       } else {
-        console.log('i = i');
         i = i;
       }
     }
